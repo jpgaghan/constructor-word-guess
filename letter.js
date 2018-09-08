@@ -1,39 +1,22 @@
 var regEx = new RegExp('^[a-z]*$');
+regEx.test(this.character);
 var inquirer = require("inquirer");
-var currentWord = "fuck you"
 
-function Letter() {
-    this.character = "string";
+function Letter(character) {
+    this.character = character;
     this.guessed = false;
-    this.guessedLetters = [];
-    this.previousGuess = function () {
-        if(!this.guessedLetters.includes(this.character) && regEx.test(this.character)) {
+    this.wordGenerator = function () {
+        if(this.guessed) {
             return this.character
-        } else if (this.guessedLetters.includes(this.character)) {
-            console.log(previousGuess)
-            // return `_`
-        } else if (!regEx.test(this.character)) {
-            console.log(`not a valid character dummy`)
-        };
+        } else {return `_`}
     }
-    this.guess = function() {
-     inquirer.prompt([
-        {type: "input",
-        name: "userInput",
-        message: "Guess a letter!"
-        }
-    ]).then(function(answer) {
-        letters.character = answer.userInput;
-         if (currentWord.includes(letters.character)) {
-            letters.correctGuess = true;
-            letters.guessedLetters.push(letters.character);
+    this.guessCheck = function(guess) {
+        
+         if (this.character === guess) {
+            this.guessed= true;
             console.log(letters)
-         } else {letters.correctGuess = false;}
-            letters.guessedLetters.push(letters.character);
-            console.log(letters)
-        });
+         } 
     }
-    this.correctGuess = false;
 }
-var letters = new Letter();
-letters.guess();
+
+module.exports=Letter;
