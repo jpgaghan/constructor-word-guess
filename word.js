@@ -1,9 +1,8 @@
 var jsLetter = require("./letter.js");
 
-function Word() {
+function Word(word) {
      
     this.letterArray = [];
-    this.displayWord = ""
     this.createwordObj = function(word) {
         for (i=0; i<word.length; i++) {
            this.letterArray.push(new Letter(word[i])
