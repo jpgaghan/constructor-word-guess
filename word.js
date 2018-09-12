@@ -1,19 +1,20 @@
-var jsLetter = require("./letter.js");
-
-function Word(word) {
+var Letter = require("./letter.js");
+var variable;
+function Wordes(word) {
      
     this.letterArray = [];
-    this.createwordObj = function(word) {
-        for (i=0; i<word.length; i++) {
-           this.letterArray.push(new Letter(word[i])
-        )
-        this.toString = this.displayWord + letterArray[i].character
-        
-   }};
-
+    for (var i=0; i<word.length; i++) {
+       this.letterArray.push(new Letter(word[i]))
+    }
+   
    this.guessChecker = function(guessedChar){
-    this.letterArray.forEach(this.guessCheck(guessedChar)) 
+    variable = guessedChar
+    this.letterArray
+    .forEach(function(guessedChar) {guessedChar.guessCheck(variable)}) 
    };
 };
 
-module.exports = Word;
+var ford = new Wordes("fuck")
+ford.guessChecker(`u`);
+console.log(ford)
+module.exports = Wordes;
