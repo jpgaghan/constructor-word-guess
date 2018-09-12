@@ -14,7 +14,7 @@ function Wordes(word) {
    };
 };
 
-var ford = new Wordes("fuck")
+var ford = new Wordes("dang")
 ford.guessChecker(`u`);
 console.log(ford)
 module.exports = Wordes;
